@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colección - KazWorld</title>
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #fff; color: #222; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: #111; border-bottom: 1px solid #333; z-index: 1000;
+      transition: background 0.3s;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between; height: 70px;
+    }
+
+    /* LOGO */
+    .logo img {
+      height: 180px;
+      display: block;
+      margin-top: -15px;
+    }
+
+    /* NAV MENÚ con efecto neón */
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav ul li a {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px #2ecc71, 0 0 10px #2ecc71, 0 0 20px #2ecc71;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #2ecc71;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71;
+    }
+    nav ul li a:hover {
+      color: #2ecc71;
+      text-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71, 0 0 40px #2ecc71;
+      transform: scale(1.1);
+    }
+    nav ul li a:hover::after { width: 100%; }
+
+    /* HERO */
+    .hero {
+      margin-top: 70px;
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg,#1a1a1a 0%, #4b0082 50%, #000428 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 45px;
+      text-shadow: 0 0 10px #9d00ff, 0 0 20px #9d00ff;
+    }
+
+    /* SECCIÓN DE CATEGORÍAS */
+    .categorias {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .categorias h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #2ecc71;
+      text-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .categoria {
+      background: #f5f5f5;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+    .categoria img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .categoria:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .categoria:hover img { transform: scale(1.1); }
+    .categoria h3 {
+      padding: 15px;
+      font-size: 22px;
+      text-align: center;
+      color: #2ecc71;
+    }
+
+    /* FOOTER */
+    footer { background: #222; color: #ccc; padding: 40px 20px; text-align: center; margin-top: 40px; }
+    footer a { color: #2ecc71; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../fotos/Logo-removebg-preview.png" alt="Logo de tu marca">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="KazWorld.html">Inicio</a></li>
+          <li><a href="coleccion.html">Colección</a></li>
+          <li><a href="#">Drops</a></li>
+          <li><a href="#">Noticias</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Nuestra Colección</h2>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias">
+    <h2>Categorías</h2>
+    <div class="grid">
+      <div class="categoria">
+        <img src="https://via.placeholder.com/400x250?text=Camisetas" alt="Camisetas">
+        <h3>Camisetas</h3>
+      </div>
+      <div class="categoria">
+        <img src="https://via.placeholder.com/400x250?text=Sudaderas" alt="Sudaderas">
+        <h3>Sudaderas</h3>
+      </div>
+      <div class="categoria">
+        <img src="https://via.placeholder.com/400x250?text=Gorras" alt="Gorras">
+        <h3>Gorras</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 KazWorld - Todos los derechos reservados</p>
+    <p><a href="#">Política de privacidad</a> | <a href="#">Términos</a></p>
+  </footer>
+
+  <script>
+    // Header cambia con scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>
+
